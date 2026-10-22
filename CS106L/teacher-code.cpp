@@ -33,13 +33,19 @@ int main() {
     // stringToIntegerTest();
     // bufferedExperiment();
 
-    int a = endlEachTime();
-    int b = endlAtEnd();
-    cout << "endl each time: " << a << endl;
-    cout << "endl at end: " << b << endl;
+    // int a = endlEachTime();
+    // int b = endlAtEnd();
+    // cout << "endl each time: " << a << endl;
+    // cout << "endl at end: " << b << endl;
 
-    // badWelcomeProgram();
+    badWelcomeProgram();
 
+    istringstream iss ("16.9\n 24");
+    double val;
+    string line;
+    iss >> val; //val = 16.9
+    iss.ignore();
+    getline (iss, line); //line = ""
     return 0;
 }
 
@@ -150,7 +156,8 @@ void badWelcomeProgram() {
     int age;
 
     cout << "What is your name? "; // sidenote: no flush needed! why?
-    cin >> name;
+    //cin >> name;
+    getline(cin, name); // this is better than cin >> name; because it allows for spaces in the name
 
     cout << "What is your age? ";
     cin >> age;
@@ -158,7 +165,8 @@ void badWelcomeProgram() {
     cout << "Hello " << name << " (age " << age << ")" << '\n';
 
     cout << "Do you want to try again? ";
-    cin >> response;
+    //cin >> response;
+    getline(cin, response);
 
     cout << "You said: " << response << endl;
 }
